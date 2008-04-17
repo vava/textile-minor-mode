@@ -1,11 +1,10 @@
-;;; textile-mode.el --- Textile markup editing major mode
+;;; textile-minor-mode.el --- Textile markup editing minor mode
 
-;; Copyright (C) 2006 Free Software Foundation, Inc.
+;; Copyright (C) 2008 Free Software Foundation, Inc.
 
-;; Modified by Vadim Atlygin <vadim.atlygin@gmail.com>
-
-;; Author: Julien Barnier <julien@nozav.org>
-;; $Id: textile-mode.el 6 2006-03-30 22:37:08Z juba $
+;; Author: Vadim Atlygin <vadim.atlygin@gmail.com>
+                    
+;; Based on textile-mode created by Julien Barnier <julien@nozav.org>
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
