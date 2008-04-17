@@ -108,7 +108,7 @@ non-matching parentheses"
 
 
 ; <x-color><param>Firebrick</param>from gnus-button-url-regexp
-</x-color>(setq textile-url-regexp <x-color><param>RosyBrown</param>"\\b\\(\\(www\\.\\|\\(s?https?\\|ftp\\|file\\|gopher\\|nntp\\|news\\|telnet\\|wais\\|mailto\\|info\\):\\)\\(//[-a-z0-9_.]+:[0-9]*\\)?[-a-z0-9_=!?#$@~%&*+\\/:;.,[:word:]]+[-a-z0-9_=#$@~%&*+\\/[:word:]]\\)"</x-color>)
+</x-color>(setq textile-url-regexp <x-color><param>RosyBrown</param>"\\b</x-color><x-color><param>RosyBrown</param>\\(\\(</x-color><x-color><param>RosyBrown</param>www\\.</x-color><x-color><param>RosyBrown</param>\\|\\(</x-color><x-color><param>RosyBrown</param>s?https?</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>ftp</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>file</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>gopher</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>nntp</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>news</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>telnet</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>wais</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>mailto</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>info</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>:</x-color><x-color><param>RosyBrown</param>\\)\\(</x-color><x-color><param>RosyBrown</param>//[-a-z0-9_.]+:[0-9]*</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>?[-a-z0-9_=!?#$@~%&*+\\/:;.,[:word:]]+[-a-z0-9_=#$@~%&*+\\/[:word:]]</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>)
 
 
 
@@ -120,7 +120,7 @@ non-matching parentheses"
    (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"?"</x-color>
    (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color>
    <x-color><param>RosyBrown</param>"\\. "</x-color>
-   <x-color><param>RosyBrown</param>"\\(\\(?:.\\|\n\\)*?\\)\n\n"</x-color>))
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(\\(?:</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*?</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\n\n"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-attribute-matcher</x-color> (attr-start attr-end)
@@ -129,25 +129,25 @@ non-matching parentheses"
    (textile-re-concat (append textile-blocks textile-inline-markup))
    (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"*"</x-color>
    (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color>
-   <x-color><param>RosyBrown</param>"\\("</x-color> attr-start <x-color><param>RosyBrown</param>"[^"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>"</x-color> attr-start <x-color><param>RosyBrown</param>"[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>"</x-color>
    (<x-color><param>Purple</param>if</x-color> (string-equal attr-end <x-color><param>RosyBrown</param>"\\]"</x-color>) <x-color><param>RosyBrown</param>"]"</x-color> attr-end)
-   <x-color><param>RosyBrown</param>"]*"</x-color> attr-end <x-color><param>RosyBrown</param>"\\)"</x-color>))
+   <x-color><param>RosyBrown</param>"]*"</x-color> attr-end <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-inline-markup-matcher</x-color> (markup)
   "Return the matcher regexp for an inline markup"
   (concat
-	<x-color><param>RosyBrown</param>"\\W\\("</x-color>
+	<x-color><param>RosyBrown</param>"\\W</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>"</x-color>
    markup
-   <x-color><param>RosyBrown</param>"\\(\\w\\|\\w.*?\\w\\|[[{(].*?\\w\\)"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>\\w</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\\w.*?\\w</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>[[{(].*?\\w</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>
    markup
-	<x-color><param>RosyBrown</param>"\\)\\W"</x-color>))
+	<x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\\W"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-list-bullet-matcher</x-color> (bullet)
   "Return the matcher regexp for a list bullet"
   (concat
-   <x-color><param>RosyBrown</param>"^\\("</x-color> bullet <x-color><param>RosyBrown</param>"\\)"</x-color>
+   <x-color><param>RosyBrown</param>"^</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>"</x-color> bullet <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>
    (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"*"</x-color>
    (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color>))
 
@@ -155,41 +155,41 @@ non-matching parentheses"
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-alignments-matcher</x-color> ()
   "Return the matcher regexp for an alignments or indentation"
   (concat
-   <x-color><param>RosyBrown</param>"\\(?:"</x-color> (textile-re-concat textile-blocks) <x-color><param>RosyBrown</param>"\\|"</x-color> <x-color><param>RosyBrown</param>"!"</x-color> <x-color><param>RosyBrown</param>"\\)"</x-color>
-   <x-color><param>RosyBrown</param>"\\("</x-color> (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"+"</x-color> <x-color><param>RosyBrown</param>"\\)"</x-color>))
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>"</x-color> (textile-re-concat textile-blocks) <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color> <x-color><param>RosyBrown</param>"!"</x-color> <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>"</x-color> (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"+"</x-color> <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-table-matcher</x-color> ()
   "Return the matcher regexp for a table row or header"
   (concat
-   <x-color><param>RosyBrown</param>"\\(?:"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>"</x-color>
    <x-color><param>RosyBrown</param>"^table"</x-color> (textile-re-concat textile-table-alignments) <x-color><param>RosyBrown</param>"*"</x-color> (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color> <x-color><param>RosyBrown</param>"\\. *$"</x-color>
-   <x-color><param>RosyBrown</param>"\\|"</x-color>
-   <x-color><param>RosyBrown</param>"^"</x-color> (textile-re-concat textile-table-alignments) <x-color><param>RosyBrown</param>"*"</x-color> (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color> <x-color><param>RosyBrown</param>"\\(?:\\. *|\\)"</x-color>
-   <x-color><param>RosyBrown</param>"\\|"</x-color>
-   <x-color><param>RosyBrown</param>"|"</x-color> (textile-re-concat textile-table-alignments) <x-color><param>RosyBrown</param>"*"</x-color> (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color> <x-color><param>RosyBrown</param>"\\(?:\\. \\)?"</x-color>
-   <x-color><param>RosyBrown</param>"\\|"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color>
+   <x-color><param>RosyBrown</param>"^"</x-color> (textile-re-concat textile-table-alignments) <x-color><param>RosyBrown</param>"*"</x-color> (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color> <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>\\. *|</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color>
+   <x-color><param>RosyBrown</param>"|"</x-color> (textile-re-concat textile-table-alignments) <x-color><param>RosyBrown</param>"*"</x-color> (textile-re-concat textile-attributes) <x-color><param>RosyBrown</param>"*"</x-color> <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>\\. </x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>?"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color>
    <x-color><param>RosyBrown</param>"| *$"</x-color>
-   <x-color><param>RosyBrown</param>"\\)"</x-color>))
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-link-matcher</x-color> ()
   "Return the matcher regexp for a link"
   (concat
-   <x-color><param>RosyBrown</param>"\\(?:"</x-color>
-   <x-color><param>RosyBrown</param>"\\(?:"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param>"</x-color>
 
-   <x-color><param>RosyBrown</param>"\"\\(.*?\\)\":?"</x-color>
+   <x-color><param>RosyBrown</param>"\"</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.*?</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\":?"</x-color>
 
-   <x-color><param>RosyBrown</param>"\\|"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color>
 
-   <x-color><param>RosyBrown</param>"\\[\\(.*?\\)\\]"</x-color>
+   <x-color><param>RosyBrown</param>"\\[</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.*?</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\\]"</x-color>
 
-   <x-color><param>RosyBrown</param>"\\)?"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>?"</x-color>
    textile-url-regexp
-	<x-color><param>RosyBrown</param>"\\|"</x-color>
-	<x-color><param>RosyBrown</param>"\".*?\":[^ \n\t]+"</x-color>
-   <x-color><param>RosyBrown</param>"\\)"</x-color>))
+	<x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color>
+	<x-color><param>RosyBrown</param>"\".*?\":[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param> \n\t]+"</x-color>
+   <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>))
 
 
 (<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-image-matcher</x-color> ()
@@ -197,7 +197,7 @@ non-matching parentheses"
   (concat
    <x-color><param>RosyBrown</param>"!"</x-color>
    (textile-re-concat textile-alignments) <x-color><param>RosyBrown</param>"*"</x-color>
-   <x-color><param>RosyBrown</param>"/?\\w[^ \n\t]*?\\(?: *(.*?)\\|\\w\\)"</x-color>
+   <x-color><param>RosyBrown</param>"/?\\w[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param> \n\t]*?</x-color><x-color><param>RosyBrown</param>\\(?:</x-color><x-color><param>RosyBrown</param> *(.*?)</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\\w</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color>
    <x-color><param>RosyBrown</param>"!:?"</x-color>))
 
 
@@ -221,7 +221,7 @@ non-matching parentheses"
 	   ;; <x-color><param>Firebrick</param>footnotes
 </x-color>	   `(,(textile-block-matcher <x-color><param>RosyBrown</param>"fn[0-9]+"</x-color>) 1 'textile-footnote-face t t)
 	   ;; <x-color><param>Firebrick</param>footnote marks
-</x-color>	   '(<x-color><param>RosyBrown</param>"\\w\\([[0-9]+]\\)"</x-color> 1 'textile-footnotemark-face prepend t)
+</x-color>	   '(<x-color><param>RosyBrown</param>"\\w</x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>[[0-9]+]</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>"</x-color> 1 'textile-footnotemark-face prepend t)
 	   ;; <x-color><param>Firebrick</param>acronyms
 </x-color>	   `(,(textile-acronym-matcher) 0 'textile-acronym-face t t)
 
@@ -229,11 +229,11 @@ non-matching parentheses"
 	   ;; <x-color><param>Firebrick</param>emphasis
 </x-color>	   `(,(textile-inline-markup-matcher <x-color><param>RosyBrown</param>"__"</x-color>) 1 'textile-emph-face prepend t)
 	   `(,(textile-inline-markup-matcher <x-color><param>RosyBrown</param>"_"</x-color>) 1 'textile-emph-face prepend t)
-	   '(<x-color><param>RosyBrown</param>"<<em>\\(.\\|\n\\)*?<</em>"</x-color> 0 'textile-emph-face prepend t)
+	   '(<x-color><param>RosyBrown</param>"<<em></x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*?<</em>"</x-color> 0 'textile-emph-face prepend t)
 	   ;; <x-color><param>Firebrick</param>strength
 </x-color>	   `(,(textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*\\*"</x-color>) 1 'textile-strong-face prepend t)
 	   `(,(textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*"</x-color>) 1 'textile-strong-face prepend t)
-	   '(<x-color><param>RosyBrown</param>"<<strong>\\(.\\|\n\\)*?<</strong>"</x-color> 0 'textile-strong-face prepend t)
+	   '(<x-color><param>RosyBrown</param>"<<strong></x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*?<</strong>"</x-color> 0 'textile-strong-face prepend t)
 	   ;; <x-color><param>Firebrick</param>citation
 </x-color>	   `(,(textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\?\\?"</x-color>) 1 'textile-citation-face prepend t)
 	   ;; <x-color><param>Firebrick</param>code
@@ -281,9 +281,9 @@ non-matching parentheses"
 
 
 		;; <x-color><param>Firebrick</param><<pre> blocks
-</x-color>	   '(<x-color><param>RosyBrown</param>"<<pre>\\(.\\|\n\\)*?<</pre>"</x-color> 0 'textile-pre-face t t)
+</x-color>	   '(<x-color><param>RosyBrown</param>"<<pre></x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*?<</pre>"</x-color> 0 'textile-pre-face t t)
 	   ;; <x-color><param>Firebrick</param><<code> blocks
-</x-color>	   '(<x-color><param>RosyBrown</param>"<<code>\\(.\\|\n\\)*?<</code>"</x-color> 0 'textile-code-face t t))
+</x-color>	   '(<x-color><param>RosyBrown</param>"<<code></x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*?<</code>"</x-color> 0 'textile-code-face t t))
 	  "Keywords/Regexp for fontlocking of textile-mode")
 
 
@@ -508,14 +508,59 @@ non-matching parentheses"
 
 
 
-(<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-replace</x-color> (regexp tostring subexpr)
+(setq textile-ignore-block-start <x-color><param>RosyBrown</param>"<<[Cc][Oo][Dd][Ee]></x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param><<[Pp][Rr][Ee]>"</x-color>)
+
+(setq textile-ignore-block-end <x-color><param>RosyBrown</param>"<</[Cc][Oo][Dd][Ee]></x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param><</[Pp][Rr][Ee]>"</x-color>)
+
+
+(<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-replace</x-color> (tobufferstart regexp tostring subexpr)
 
   "Replaces all the occurrences of regexp in the buffer"
 
-  (beginning-of-buffer)
+  (funcall tobufferstart)
 
-  (<x-color><param>Purple</param>while</x-color> (re-search-forward regexp nil t)
-	(replace-match tostring nil nil nil subexpr))
+  (<x-color><param>Purple</param>while</x-color> (re-search-forward (concat regexp <x-color><param>RosyBrown</param>"</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>"</x-color> textile-ignore-block-start) nil t)
+
+	(<x-color><param>Purple</param>if</x-color> (string-match textile-ignore-block-start (match-string 0))
+
+		(re-search-forward textile-ignore-block-end nil t)
+	  (replace-match tostring nil nil nil subexpr)))
+
+)
+
+
+(<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-to-html-internal</x-color> ( tobufferstart )
+
+  "Converts current buffer to HTML
+
+   Uses tobufferstart to go to buffer start :)"
+
+  (<x-color><param>Purple</param>save-excursion</x-color>
+
+	(textile-replace tobufferstart (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"_"</x-color>) <x-color><param>RosyBrown</param>"<<em>\\2<</em>"</x-color> 1)
+
+	(textile-replace tobufferstart (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"__"</x-color>) <x-color><param>RosyBrown</param>"<<em>\\2<</em>"</x-color> 1)
+
+	(textile-replace tobufferstart (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*"</x-color>) <x-color><param>RosyBrown</param>"<<strong>\\2<</strong>"</x-color> 1)
+
+	(textile-replace tobufferstart (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*\\*"</x-color>) <x-color><param>RosyBrown</param>"<<strong>\\2<</strong>"</x-color> 1)
+
+	(textile-replace tobufferstart (textile-link-matcher) <x-color><param>RosyBrown</param>"<<a href='\\3'>\\1\\2<</a>"</x-color> nil)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>#].*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>#"</x-color> <x-color><param>RosyBrown</param>"<<ol>\n"</x-color> 1)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"\n#.*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>\n"</x-color> <x-color><param>RosyBrown</param>"<</ol>\n"</x-color> 1)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>*].*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>\\*"</x-color> <x-color><param>RosyBrown</param>"<<ul>\n"</x-color> 1)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"\n\\*.*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>[\n\']"</x-color> <x-color><param>RosyBrown</param>"<</ul>\n"</x-color> 1)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"^[#*] </x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.*</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>$"</x-color> <x-color><param>RosyBrown</param>"<<li>\\1<</li>"</x-color> nil)
+
+	(textile-replace tobufferstart <x-color><param>RosyBrown</param>"\n</x-color><x-color><param>RosyBrown</param>\\(\\(?:</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>\n]</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\n"</x-color> <x-color><param>RosyBrown</param>"\n<<p>\\1<</p>\n"</x-color> nil)
+
+	)
+
 )
 
 
@@ -525,33 +570,22 @@ non-matching parentheses"
 
   (interactive)
 
-  (<x-color><param>Purple</param>save-excursion</x-color>
-
-	(textile-replace (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"_"</x-color>) <x-color><param>RosyBrown</param>"<<em>\\2<</em>"</x-color> 1)
-
-	(textile-replace (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"__"</x-color>) <x-color><param>RosyBrown</param>"<<em>\\2<</em>"</x-color> 1)
-
-	(textile-replace (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*"</x-color>) <x-color><param>RosyBrown</param>"<<strong>\\2<</strong>"</x-color> 1)
-
-	(textile-replace (textile-inline-markup-matcher <x-color><param>RosyBrown</param>"\\*\\*"</x-color>) <x-color><param>RosyBrown</param>"<<strong>\\2<</strong>"</x-color> 1)
-
-	(textile-replace (textile-link-matcher) <x-color><param>RosyBrown</param>"<<a href='\\3'>\\1\\2<</a>"</x-color> nil)
-
-	(textile-replace <x-color><param>RosyBrown</param>"\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>#].*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>#"</x-color> <x-color><param>RosyBrown</param>"<<ol>\n"</x-color> 1)
-
-	(textile-replace <x-color><param>RosyBrown</param>"\n#.*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>\n"</x-color> <x-color><param>RosyBrown</param>"<</ol>\n"</x-color> 1)
-
-	(textile-replace <x-color><param>RosyBrown</param>"\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>*].*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>\\*"</x-color> <x-color><param>RosyBrown</param>"<<ul>\n"</x-color> 1)
-
-	(textile-replace <x-color><param>RosyBrown</param>"\n\\*.*\n</x-color><x-color><param>RosyBrown</param>\\(\\)</x-color><x-color><param>RosyBrown</param>[\n\']"</x-color> <x-color><param>RosyBrown</param>"<</ul>\n"</x-color> 1)
-
-	(textile-replace <x-color><param>RosyBrown</param>"^[#*] </x-color><x-color><param>RosyBrown</param>\\(</x-color><x-color><param>RosyBrown</param>.*</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>$"</x-color> <x-color><param>RosyBrown</param>"<<li>\\1<</li>"</x-color> nil)
-
-	(textile-replace <x-color><param>RosyBrown</param>"\n</x-color><x-color><param>RosyBrown</param>\\(\\(?:</x-color><x-color><param>RosyBrown</param>.</x-color><x-color><param>RosyBrown</param>\\|</x-color><x-color><param>RosyBrown</param>\n[</x-color><x-color><param>RosyBrown</param>^</x-color><x-color><param>RosyBrown</param>\n]</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>*</x-color><x-color><param>RosyBrown</param>\\)</x-color><x-color><param>RosyBrown</param>\n"</x-color> <x-color><param>RosyBrown</param>"\n<<p>\\1<</p>\n"</x-color> nil)
-
-	)
+  (textile-to-html-internal 'beginning-of-buffer)
 
   )
+
+
+(<x-color><param>Purple</param>defun</x-color> <x-color><param>Blue1</param>textile-to-html-buffer-respect-weblogger</x-color> ()
+
+  "Converts current buffer to HTML with respect to weblogger
+
+   It just means that text before --text follows this line-- would be left alone."
+
+  (interactive)
+
+  (textile-to-html-internal (<x-color><param>Purple</param>lambda</x-color> () (<x-color><param>Purple</param>progn</x-color> (beginning-of-buffer) (search-forward <x-color><param>RosyBrown</param>"--text follows this line--"</x-color>) (forward-line) )) )
+
+)
 
 
 (<x-color><param>Purple</param>provide</x-color> '<x-color><param>CadetBlue</param>textile-minor-mode</x-color>)
