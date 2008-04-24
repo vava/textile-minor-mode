@@ -3,7 +3,7 @@
 ;; Copyright (C) 2008 Free Software Foundation, Inc.
 
 ;; Author: Vadim Atlygin <vadim.atlygin@gmail.com>
-                    
+
 ;; Based on textile-mode created by Julien Barnier <julien@nozav.org>
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -150,7 +150,7 @@ non-matching parentheses"
   (concat
    "!"
    (textile-re-concat textile-alignments) "*"
-   "/?\\w[^ \n\t]*?\\(?: *(.*?)\\|\\w\\)"
+   "/?\\(\\w[^ \n\t]*?\\)\\(?: *(\\(.*?\\))\\|\\w\\)"
    "!:?"))
 
 (defun textile-acronym-matcher ()
@@ -433,6 +433,7 @@ non-matching parentheses"
 	(textile-replace tobufferstart (textile-inline-markup-matcher "\\*") "<strong>\\2</strong>" 1)
 	(textile-replace tobufferstart (textile-inline-markup-matcher "\\*\\*") "<strong>\\2</strong>" 1)
 	(textile-replace tobufferstart (textile-link-matcher) "<a href='\\3'>\\1\\2</a>" nil)
+	(textile-replace tobufferstart (textile-image-matcher) "<img src='\\1' alt='\\2' title='\\2'/>" nil)
 	(textile-replace tobufferstart "\n[^#].*\n\\(\\)#" "<ol>\n" 1)
 	(textile-replace tobufferstart "\n#.*\n\\(\\)\n" "</ol>\n" 1)
 	(textile-replace tobufferstart "\n[^*].*\n\\(\\)\\*" "<ul>\n" 1)
